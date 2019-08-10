@@ -1,14 +1,15 @@
-let express = require('express'),
+const express = require('express'),
 app = express();
 
 app.post('/streamstatus', function (req, res) {
   res.status(200);
-  res.send(JSON.stringify({ Message:'Here lies my first endpoint response.'}));
-  // res.send(JSON.stringify({ Hello: ‘World’}));
-	res.end();
+	res.end(JSON.stringify({
+    Message:"Let Do This",
+    Code: 1234
+  }));
    });
 
-let server = app.listen(8888, function () {
+let server = app.listen(8081, function () {
    let host = server.address().address,
    port = server.address().port
    console.log("Example app listening at http://%s:%s", host, port)
