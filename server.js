@@ -31,7 +31,7 @@ async function subToStream(streamerID){
         "hub.callback":"https://webhook.site/d3794531-2fbb-4fe9-9fe7-6d4291301c93",
         "hub.mode":"subscribe",
         "hub.topic":`https://api.twitch.tv/helix/streams?user_id=${streamerID}`,
-        "hub.lease_seconds":"0"
+        "hub.lease_seconds":"600"
       }
     })
 
