@@ -1,5 +1,6 @@
 const helpCommand = require("./helpCommand");
 const multiplyCommand = require("./multiplyCommand");
+const subStreamCommand = require("./subStreamCommand");
 
 
 
@@ -8,5 +9,6 @@ const multiplyCommand = require("./multiplyCommand");
 
 module.exports = {
   helpCommand,
-  multiplyCommand
+  multiplyCommand,
+  subStreamCommand
 }

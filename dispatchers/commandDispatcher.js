@@ -11,11 +11,14 @@ function processCommand(receivedMessage) {
   console.log("Arguments: " + arguments); // There may not be any arguments
 
   if (primaryCommand == "help") {
-      console.log("help me");
+      console.log(">>>>> Help Command Invoked <<<<<");
       cmd.helpCommand(arguments, receivedMessage)
   } else if (primaryCommand == "multiply") {
-      console.log("multiply me");
+      console.log(">>>>> Multiply Command Invoked <<<<<");
       cmd.multiplyCommand(arguments, receivedMessage)
+  } else if (primaryCommand == "substream") {
+      console.log(">>>>> SubStream Command Invoked <<<<<");
+      cmd.subStreamCommand(arguments, receivedMessage)
   } else {
       receivedMessage.channel.send("I don't understand the command. Try `!help` or `!multiply`");
   }

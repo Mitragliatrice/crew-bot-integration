@@ -1,8 +1,8 @@
 {
-  "name": "discord-bot-server",
+  "name": "crew-bot-integration",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "dependencies": {
     "axios": "^0.19.0",
     "discord.js": "^11.5.1",
@@ -11,13 +11,16 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "crew-bot-integration"
+    "url": "git+https://github.com/Mitragliatrice/crew-bot-integration.git"
   },
-  "author": "Mitragliatrice",
-  "license": "ISC"
+  "author": "Mit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mitragliatrice/crew-bot-integration/issues"
+  },
+  "homepage": "https://github.com/Mitragliatrice/crew-bot-integration#readme"
 }
