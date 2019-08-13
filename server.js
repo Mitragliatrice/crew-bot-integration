@@ -27,7 +27,8 @@ function getTwitchUserID(username){
 function subToStream(streamerID){
     const Url='/webhooks/hub'
     let body = {
-      "hub.callback":"https://webhook.site/3489a9c9-6aac-4f0c-951f-e80eedb0e5df",
+      "hub.callback":"https://twitchhttp.azurewebsites.net/api/twitchpubsub",
+      // "hub.callback":"https://webhook.site/d3794531-2fbb-4fe9-9fe7-6d4291301c93",
       "hub.mode":"subscribe",
       "hub.topic":`https://api.twitch.tv/helix/streams?user_id=${streamerID}`,
       "hub.lease_seconds":"0"
@@ -36,6 +37,7 @@ function subToStream(streamerID){
     return axiosEndpoint.post(Url, body)
 
     .then(function (response) {
+      console.log("POST Request Sent to Twitch");
       let status = response.status;
       return status;
     })
