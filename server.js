@@ -1,4 +1,4 @@
-const Axios = require('axios')
+const Axios = require('axios');
 require("dotenv").config();
 
 const baseURL = "https://api.twitch.tv/helix";
