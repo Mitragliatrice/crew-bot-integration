@@ -28,10 +28,9 @@ function subToStream(streamerID){
     const Url='/webhooks/hub'
     let body = {
       "hub.callback":"https://twitchhttp.azurewebsites.net/api/twitchpubsub",
-      // "hub.callback":"https://webhook.site/d3794531-2fbb-4fe9-9fe7-6d4291301c93",
       "hub.mode":"subscribe",
       "hub.topic":`https://api.twitch.tv/helix/streams?user_id=${streamerID}`,
-      "hub.lease_seconds":"0"
+      "hub.lease_seconds":"864000"
     };
 
     return axiosEndpoint.post(Url, body)
