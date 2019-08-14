@@ -1,10 +1,9 @@
-const getTwitchUserID = require("../server");
+const server = require("../server");
 
 async function streamSubCommand(arguments, receivedMessage) {
   if (arguments.length > 0) {
       console.log('Arguments: '+arguments);
-      // let response = getTwitchUserID(arguments);
-      let status = await getTwitchUserID(arguments);
+      let status = await server.subToStream(arguments)
       console.log('>'+status);
       if (status == 202) {
         receivedMessage.channel.send("Subscribed to " + arguments.join().replace(","," ")+"'")
