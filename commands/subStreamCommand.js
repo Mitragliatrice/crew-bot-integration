@@ -1,16 +1,16 @@
-const server = require("../server");
+const twitchCalls = require("../calls/twitchCalls");
 
 async function subStreamCommand(arguments, receivedMessage) {
   if (arguments.length > 0) {
 
-    let twitchUserID = await server.getTwitchUserID(arguments);
+    let twitchUserID = await twitchCalls.getTwitchUserID(arguments);
 
     let callback = "https://twitchhttp.azurewebsites.net/api/twitchpubsub";
     let topicRoute = `streams?user_id=${twitchUserID}`;
     let seconds = "864000";
 
     console.log('>>>> Executing "SubStream" Command <<<<')
-    let status = await server.subToTopic(callback, topicRoute, seconds)
+    let status = await twitchCalls.subToTopic(callback, topicRoute, seconds)
 
     console.log('SubStream Status: '+status)
     if (status == 202) {

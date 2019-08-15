@@ -1,16 +1,16 @@
-const server = require("../server");
+const twitchCalls = require("../calls/twitchCalls");
 
 async function unsubStreamCommand(arguments, receivedMessage) {
   if (arguments.length > 0) 
   {
-    let twitchUserID = await server.getTwitchUserID(arguments);
+    let twitchUserID = await twitchCalls.getTwitchUserID(arguments);
 
     let callback = "https://twitchhttp.azurewebsites.net/api/twitchpubsub";
     let topicRoute = `streams?user_id=${twitchUserID}`;
     // let seconds = "864000";
 
     console.log('>>>> Executing "UnsubStream" Command <<<<')
-    let status = await server.unsubToTopic(callback, topicRoute)
+    let status = await twitchCalls.unsubToTopic(callback, topicRoute)
 
     console.log('UnsubStream Status: '+status)
     if (status == 202) {

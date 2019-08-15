@@ -1,4 +1,4 @@
-const cmd = require("../commands");
+const cmd = require("../commands/commanDex");
 
 function processCommand(receivedMessage) {
 
@@ -13,9 +13,6 @@ function processCommand(receivedMessage) {
   if (primaryCommand == "help") {
       console.log(">>>>> Help Command Invoked <<<<<");
       cmd.helpCommand(arguments, receivedMessage)
-  } else if (primaryCommand == "multiply") {
-      console.log(">>>>> Multiply Command Invoked <<<<<");
-      cmd.multiplyCommand(arguments, receivedMessage)
   } else if (primaryCommand == "substream") {
       console.log(">>>>> SubStream Command Invoked <<<<<");
       cmd.subStreamCommand(arguments, receivedMessage)
