@@ -16,7 +16,7 @@ app.post('/publishevent', function (req, res) {
     res.end()
 });
 
-let server = app.listen(80, function () {
+let server = app.listen(8080, function () {
   console.log("Now listening on port 80 for publications.")
 
 })
