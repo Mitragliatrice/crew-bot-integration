@@ -24,6 +24,7 @@ app.post('/publishevent', function (req, res) {
 });
 
 let server = app.listen(8080, function () {
+  console.log("Now listening on port 8080 for publications.")
   //  let host = server.address().address
   //  let port = server.address().port
   //  console.log("Example app listening at http://%s:%s", host, port)
