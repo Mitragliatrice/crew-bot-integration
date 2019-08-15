@@ -7,7 +7,6 @@ module.exports = function (context, req) {
 
   context.log(">>>>> Request Received at /twitchpubsub <<<<<");
   context.log(req.method);
-  // context.log(req.query['hub.challenge']);
 
   if (req.method == "GET") {
       context.log(`New ${req.query['hub.mode']} request`);
@@ -25,7 +24,7 @@ module.exports = function (context, req) {
   context.done();
 };
 
-const baseURL = "twitchpub.westus.cloudapp.azure.com";
+const baseURL = "http://104.42.41.254:8080";
 const axiosEndpoint = Axios.create({
     baseURL
   });

@@ -5,9 +5,8 @@ async function unsubStreamCommand(arguments, receivedMessage) {
   {
     let twitchUserID = await twitchCalls.getTwitchUserID(arguments);
 
-    let callback = "https://twitchhttp.azurewebsites.net/api/twitchpubsub";
+    let callback = "https://dacrew.azurewebsites.net/api/twitchpubsub";
     let topicRoute = `streams?user_id=${twitchUserID}`;
-    // let seconds = "864000";
 
     console.log('>>>> Executing "UnsubStream" Command <<<<')
     let status = await twitchCalls.unsubToTopic(callback, topicRoute)

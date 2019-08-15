@@ -7,28 +7,16 @@ app = express();
 
 app.post('/publishevent', function (req, res) {
   console.log(">>>>> New Event Via /publishevent <<<<<");
-  // console.log("Full Request: "+req);
-  // console.log('Request Challenge: '+req.hub_challenge);
-  // if (!req.hub_challenge) {
     console.log(`New {Published Event} for {StreamID Here}`)
-    console.log(res.body);
-    let chanID = "606253185178402836"; //Tecnical Testing Channel
-    client.channels.get(chanID).send(res.body);
-    //Do something with this information    
-  // }
-  // else {
-    // console.log(`New ${req.hub_mode} Request`)
+    console.log(req);
+    // let chanID = "606253185178402836"; //Tecnical Testing Channel
+    // client.channels.get(chanID).send(req.body);
     res.status(200);
-    // res.end(req.hub_challenge);
-  // }
+    res.write("Hello World");
+    res.end()
 });
 
-let server = app.listen(8080, function () {
-  console.log("Now listening on port 8080 for publications.")
-  //  let host = server.address().address
-  //  let port = server.address().port
-  //  console.log("Example app listening at http://%s:%s", host, port)
-})
-// Now try to access defined API using URL: http://127.0.0.1:8081/listUsers and HTTP Method : GET on local machine using any REST client. This should produce following result −
+let server = app.listen(80, function () {
+  console.log("Now listening on port 80 for publications.")
 
-// You can change given IP address when you will put the solution in production environment.
+})

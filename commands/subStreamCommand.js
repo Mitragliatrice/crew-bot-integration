@@ -5,9 +5,10 @@ async function subStreamCommand(arguments, receivedMessage) {
 
     let twitchUserID = await twitchCalls.getTwitchUserID(arguments);
 
-    let callback = "https://twitchhttp.azurewebsites.net/api/twitchpubsub";
+    let callback = "https://dacrew.azurewebsites.net/api/twitchpubsub";
     let topicRoute = `streams?user_id=${twitchUserID}`;
-    let seconds = "864000";
+    // let seconds = "864000";
+    let seconds = "120";
 
     console.log('>>>> Executing "SubStream" Command <<<<')
     let status = await twitchCalls.subToTopic(callback, topicRoute, seconds)
