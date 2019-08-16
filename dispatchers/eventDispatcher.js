@@ -5,10 +5,9 @@ const evt = require('../eventhandlers/eventDex')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const express = require('express'),
-body = require('body-parser'),
 app = express();
 
-app.use(body.json());
+decorate(app);
 
 app.post('/publishevent', function (req, res) {
   console.log(">>>>> New Event Via /publishevent <<<<<");
