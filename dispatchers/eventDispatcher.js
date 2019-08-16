@@ -1,7 +1,7 @@
 //This is an endpoint that handles any published events.
 
 const evt = require('../eventhandlers/eventDex')
-
+const decorate = require('../middleware/decorator.middleware');
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const express = require('express'),
@@ -33,7 +33,7 @@ app.post('/publishevent', function (req, res) {
 
 	
     res.status(200);
-    res.write("Hello World");
+    res.write("Success");
     res.end()
 });
 
