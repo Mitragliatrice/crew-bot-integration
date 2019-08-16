@@ -72,10 +72,23 @@ function getTwitchToken(scope){
   .catch(({response}) => console.log(response.data));
 };
 
+function getGameInformation(gameID){
+  const Url=`/games?id=${gameID}`
+  Axios.get(Url,{})
+
+  .then(
+    function({data}){
+      console.log(data)
+      return data[0];
+    }
+)
+  .catch(({response}) => console.log(response.data));
+};
 
   module.exports = {
     getTwitchUserID,
     subToTopic,
     unsubToTopic,
-    getTwitchToken
+    getTwitchToken,
+    getGameInformation
   };

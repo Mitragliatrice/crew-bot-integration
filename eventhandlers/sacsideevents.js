@@ -1,4 +1,5 @@
 require("dotenv").config();
+const callTwitch = require('../calls/twitchCalls')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
@@ -6,18 +7,20 @@ const channel = client.channels.get(606216523329044502);
 const hook = new Discord.WebhookClient('611943909110841356','wUP3G8ygpx5-3Iqd5YuvoMkB9Yfk5kXHhLswMUN6RgCGTmczxKxG7n9p6boCggLduHLq');
 
 function handleEvent(eventData){
-  hook.send("Let's hear <@&606208724457226262> ROAR!",{
+  let {gameInfo} = callTwitch.getGameInfo(eventData.game_id);
+
+  hook.send("Let's hear </@&606208724457226262> ROAR!",{
 	"embeds": [{
 		"color": 6570405,
 		"author":{
 		  "name":eventData.title,
-		  //"url":"{{ChannelUrl}}"
+		  "url":gameInfo.box_art_url
 		},
 		"description": `** ${eventData.user_name} is now streaming on Twitch**`,
 		"fields": [
 		  {
 			"name": ":video_game: Game",
-			"value": eventData.game_id,
+			"value": gameInfo.name,
 			"inline": true
 		  },
 		  {
