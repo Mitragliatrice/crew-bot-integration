@@ -9,6 +9,10 @@ client.on('ready', () =>{
     console.log(`Logged in as ${client.user.tag}!`)
 })
 
+client.on('guildMemberAdd', member =>{
+    console.log(`${member} just joined`);
+})
+
 client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return

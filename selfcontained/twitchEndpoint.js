@@ -1,4 +1,4 @@
-//This is currently deployed as an Azure Function called 'TwitchHTTP - HttpTrigger1'
+//This is currently deployed as an Azure Function called 'dacrew - HttpTrigger1'
 
 const Axios = require('axios');
 require("dotenv").config();
