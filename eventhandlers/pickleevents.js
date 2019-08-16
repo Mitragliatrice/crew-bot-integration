@@ -6,7 +6,7 @@ const channel = client.channels.get(606216545336557601);
 const hook = new Discord.WebhookClient('611944183892148224','jSenHxsBz1w-pGT0SuAl0rVR7-DrsZHozGmCI0dBSWLREB8RFPQkuqku61tPOQu69eKP');
 
 function handleEvent(eventData){
-  hook.send('Event Published');
+  hook.send('Event Published: '+eventData);
 }
 
 module.exports = handleEvent;

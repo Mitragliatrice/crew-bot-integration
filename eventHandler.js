@@ -16,18 +16,16 @@ app.post('/publishevent', function (req, res) {
   console.log(">>>>> New Event Via /publishevent <<<<<");
   // console.log(`New {Published Event} for {StreamID Here}`)
   console.log(req.body);
+	let event = req.body.data[0];
+	console.log(event.id);
 
-	let event = req.body.data;
-	if(event.id == "52404043"){ //Sacside Stream Event
-    //Do Sacside Things
+	if(event.id == '52404043'){
     console.log("SACSIDE Event regestered");
     sac.handleEvent(event);
-	} else if (event.id == "51831700"){ //Mit Stream Event
-    // Do Mit Things
+	} else if (event.id == "51831700"){
     console.log("MIT Event regestered");
     mit.handleEvent(event);
-	} else if (event.id == "21384358") { //Pickle Stream Event
-		// Do Pickle Things
+	} else if (event.id == "21384358") {
     console.log("PICKLE Event regestered");
     pick.handleEvent(event);
 	} else { //feed these to #technical-testing
