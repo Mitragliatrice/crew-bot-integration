@@ -1,9 +1,7 @@
 //This is an endpoint that handles any published events.
 
-const mit = require('./eventhandlers/mitevents')
-const sac = require('./eventhandlers/sacsideevents')
-const pick = require('./eventhandlers/pickleevents')
-const misc = require('./eventhandlers/miscevents')
+const event = require('../eventhandlers/eventDex')
+
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const express = require('express'),
@@ -21,16 +19,16 @@ app.post('/publishevent', function (req, res) {
 
 	if(event.id == '52404043'){
     console.log("SACSIDE Event regestered");
-    sac.handleEvent(event);
+    event.handleSac(event);
 	} else if (event.id == "51831700"){
     console.log("MIT Event regestered");
-    mit.handleEvent(event);
+    event.handleMit(event);
 	} else if (event.id == "21384358") {
     console.log("PICKLE Event regestered");
-    pick.handleEvent(event);
+    event.handlePick(event);
 	} else { //feed these to #technical-testing
     console.log("MISC Event regestered");
-    misc.handleEvent(event);
+    event.handleMisc(event);
 	}
 
 	
