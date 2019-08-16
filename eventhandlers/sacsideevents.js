@@ -7,9 +7,9 @@ const channel = client.channels.get(606216523329044502);
 const hook = new Discord.WebhookClient('611943909110841356','wUP3G8ygpx5-3Iqd5YuvoMkB9Yfk5kXHhLswMUN6RgCGTmczxKxG7n9p6boCggLduHLq');
 
 function handleEvent(eventData){
-  let {gameInfo} = callTwitch.getGameInfo(eventData.game_id);
+  let gameInfo = callTwitch.getGameInformation(eventData.game_id)
 
-  hook.send("Let's hear </@&606208724457226262> ROAR!",{
+    hook.send("Let's hear </@&606208724457226262> ROAR!",{
 	"embeds": [{
 		"color": 6570405,
 		"author":{

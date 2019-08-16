@@ -1,13 +1,11 @@
-const Axios = require('axios');
 require("dotenv").config();
+const Axios = require('axios');
 
 const baseURL = "https://api.twitch.tv/helix";
 const axiosEndpoint = Axios.create({
     baseURL,
-    headers:{
-      'Client-ID': process.env.TWITCH_CLIENT_ID
-    }
-  });
+	headers:{'Client-ID': process.env.TWITCH_CLIENT_ID}
+});
 
 function subToTopic(callback, topicRoute, seconds){
   const Url='/webhooks/hub'
@@ -73,16 +71,22 @@ function getTwitchToken(scope){
 };
 
 function getGameInformation(gameID){
-  const Url=`/games?id=${gameID}`
-  Axios.get(Url,{})
+  console.log("GameID: "+gameID);
+  let Url=`/games?id=${gameID}`
+  console.log("AxiosEndpoint: "+axiosEndpoint);
+  
+  return axiosEndpoint.get(Url,{})
 
   .then(
-    function({data}){
-      console.log(data)
-      return data[0];
+    function(response){
+      console.log("success: "+response.data)
+      return response.data;
     }
 )
-  .catch(({response}) => console.log(response.data));
+  .catch(function(error)
+  {console.log("Error: "+error.message)
+});
+
 };
 
   module.exports = {
