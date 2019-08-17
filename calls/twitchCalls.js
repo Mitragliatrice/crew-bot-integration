@@ -4,7 +4,7 @@ const Axios = require('axios');
 const baseURL = "https://api.twitch.tv/helix";
 const axiosEndpoint = Axios.create({
     baseURL,
-	headers:{'Client-ID': process.env.TWITCH_CLIENT_ID}
+	headers:{'Client-ID': 'process.env.TWITCH_CLIENT_ID'}
 });
 
 function subToTopic(callback, topicRoute, seconds){
@@ -72,16 +72,18 @@ function getTwitchToken(scope){
 
 function getGameInformation(gameID){
   console.log("GameID: "+gameID);
-  return Axios.get(`https://api.twitch.tv/helix/games?id=${gameID}`,{headers:{'Client-ID': process.env.TWITCH_CLIENT_ID}})
+  let clientID = process.env.TWITCH_CLIENT_ID;
+  return Axios.get(`https://api.twitch.tv/helix/games?id=${gameID}`,{headers:{'Client-ID': 'process.env.TWITCH_CLIENT_ID'}})
 
   .then(
     function(response){
-      console.log(response.data.data[0]);
+     // console.log(response.data.data[0]);
       return response.data.data[0];
     }
 )
-  .catch(function(error){
-      console.log("Error: "+error.message)
+  .catch(function(response){
+	  //console.log(request)
+      console.log("Error: "+response)
 });
 
 };

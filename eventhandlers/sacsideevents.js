@@ -6,15 +6,18 @@ const client = new Discord.Client()
 const channel = client.channels.get(606216523329044502);
 const hook = new Discord.WebhookClient('611943909110841356','wUP3G8ygpx5-3Iqd5YuvoMkB9Yfk5kXHhLswMUN6RgCGTmczxKxG7n9p6boCggLduHLq');
 
-function handleEvent(eventData){
-  let gameInfo = callTwitch.getGameInformation(eventData.game_id)
-
-    hook.send("Let's hear </@&606208724457226262> ROAR!",{
+async function handleEvent(eventData){
+  
+  if(eventData.type == "live"){
+  let gameInfo = await callTwitch.getGameInformation(eventData.game_id);
+	console.log(gameInfo);
+    hook.send("Let's hear </@&606208724457226262> ROAR!"
+	,{
 	"embeds": [{
 		"color": 6570405,
 		"author":{
 		  "name":eventData.title,
-		  "url":gameInfo.box_art_url
+		//  "url":gameInfo.box_art_url
 		},
 		"description": `** ${eventData.user_name} is now streaming on Twitch**`,
 		"fields": [
@@ -22,8 +25,8 @@ function handleEvent(eventData){
 			"name": ":video_game: Game",
 			"value": gameInfo.name,
 			"inline": true
-		  },
-		  {
+		 },
+		 {
 			"name": ":eye: Viewers",
 			"value": eventData.viewer_count,
 			"inline": true
@@ -38,9 +41,9 @@ function handleEvent(eventData){
 		}
 	}]
   })
-  .then(console.log)
-  .catch(console.log)
-
+  }else{
+	console.log(eventData.type +"event type not handled")
+  }
 }
 
 module.exports = handleEvent;
