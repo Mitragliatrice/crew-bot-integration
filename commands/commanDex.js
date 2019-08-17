@@ -1,6 +1,7 @@
 const helpCommand = require("./helpCommand");
 const subStreamCommand = require("./subStreamCommand");
 const unsubStreamCommand = require("./unsubStreamCommand");
+const gameInformationCommand = require("./gameInformationCommand");
 
 
 
@@ -10,5 +11,6 @@ const unsubStreamCommand = require("./unsubStreamCommand");
 module.exports = {
   helpCommand,
   subStreamCommand,
-  unsubStreamCommand
+  unsubStreamCommand,
+  gameInformationCommand
 }

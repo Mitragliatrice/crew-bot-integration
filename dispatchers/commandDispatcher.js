@@ -19,6 +19,9 @@ function processCommand(receivedMessage) {
   } else if (primaryCommand == "unsubstream") {
       console.log(">>>>> UnsubStream Command Invoked <<<<<");
       cmd.unsubStreamCommand(arguments, receivedMessage)
+  } else if (primaryCommand == "gameinfo") {
+      console.log(">>>>> GameInfo Command Invoked <<<<<");
+      cmd.gameInformationCommand(arguments, receivedMessage)
   } else {
       receivedMessage.channel.send("I don't understand the command. Try `!help` or `!multiply`");
   }

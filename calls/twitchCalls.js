@@ -72,19 +72,16 @@ function getTwitchToken(scope){
 
 function getGameInformation(gameID){
   console.log("GameID: "+gameID);
-  let Url=`/games?id=${gameID}`
-  console.log("AxiosEndpoint: "+axiosEndpoint);
-  
-  return axiosEndpoint.get(Url,{})
+  return Axios.get(`https://api.twitch.tv/helix/games?id=${gameID}`,{headers:{'Client-ID': process.env.TWITCH_CLIENT_ID}})
 
   .then(
     function(response){
-      console.log("success: "+response.data)
-      return response.data;
+      console.log(response.data.data[0]);
+      return response.data.data[0];
     }
 )
-  .catch(function(error)
-  {console.log("Error: "+error.message)
+  .catch(function(error){
+      console.log("Error: "+error.message)
 });
 
 };
