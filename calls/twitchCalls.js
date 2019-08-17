@@ -73,7 +73,7 @@ function getTwitchToken(scope){
 function getGameInformation(gameID){
   console.log("GameID: "+gameID);
   let clientID = process.env.TWITCH_CLIENT_ID;
-  return Axios.get(`https://api.twitch.tv/helix/games?id=${gameID}`,{headers:{'Client-ID': 'process.env.TWITCH_CLIENT_ID'}})
+  return Axios.get(`https://api.twitch.tv/helix/games?id=${gameID}`,{headers:{'Client-ID': `${process.env.TWITCH_CLIENT_ID}`}})
 
   .then(
     function(response){

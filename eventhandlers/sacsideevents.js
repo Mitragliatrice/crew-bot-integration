@@ -17,14 +17,17 @@ async function handleEvent(eventData){
 		"color": 6570405,
 		"author":{
 		  "name":eventData.title,
-		//  "url":gameInfo.box_art_url
+		  //"url":gameInfo.thumbnail_url
 		},
 		"description": `** ${eventData.user_name} is now streaming on Twitch**`,
+		"thumbnail": {
+			"url": gameInfo.box_art_url
+		},
 		"fields": [
 		  {
 			"name": ":video_game: Game",
 			"value": gameInfo.name,
-			"inline": true
+			"inline": true,
 		 },
 		 {
 			"name": ":eye: Viewers",
@@ -33,7 +36,7 @@ async function handleEvent(eventData){
 		  }
 		],
 		"image": {
-		  //"url": eventData.thumbnail_url
+		  "url": gameInfo.box_art_url
 		},
 		"footer": {
 		  "text": `http://twitch.tv/${eventData.user_name}`,
